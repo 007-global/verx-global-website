@@ -1,31 +1,19 @@
-const pages = [
-  ['index.html','Home'],
-  ['about.html','About Us'],
-  ['products.html','Medical Products'],
-  ['solutions.html','Healthcare Solutions'],
-  ['contact.html','Contact']
-];
-const current = window.location.pathname.split('/').pop() || 'index.html';
-const root = document.getElementById('header');
-root.innerHTML = `
-<a href="#main-content" class="skip-link">Skip to content</a>
-<div class="top-strip"><div class="container"><span><strong>VERX GLOBAL</strong> · GLOBAL HEALTHCARE SOLUTIONS</span><span class="top-location">20-22 Wenlock Road · London · United Kingdom</span></div></div>
-<header class="site-header"><div class="container nav-inner">
-<a class="brand" href="index.html" aria-label="VERX Global — Home"><img src="assets/verx-logo.png" alt="VERX Global Healthcare Solutions" width="252" height="78"></a>
-<button type="button" class="menu-button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span class="menu-lines" aria-hidden="true"><i></i><i></i><i></i></span> Menu</button>
-<nav id="main-nav" class="nav-links" aria-label="Primary navigation">${pages.map(([url, label]) => `<a href="${url}" ${url===current?'class="active" aria-current="page"':''}>${label}</a>`).join('')}<a class="btn nav-cta" href="contact.html">Request a Quote <span aria-hidden="true">↗</span></a></nav>
-</div></header>`;
-const menuButton = document.querySelector('.menu-button');
-const menu = document.getElementById('main-nav');
-const closeMenu=()=>{menu.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open navigation');};
-menuButton.addEventListener('click',()=>{const opening=!menu.classList.contains('open');menu.classList.toggle('open',opening);menuButton.setAttribute('aria-expanded',String(opening));menuButton.setAttribute('aria-label',opening?'Close navigation':'Open navigation');});
-menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
-const footer = document.getElementById('footer');
-footer.innerHTML = `
-<section class="cta"><div class="container"><div><span class="eyebrow">LET'S WORK TOGETHER</span><h2>Looking for dependable medical supply?</h2><p>Tell us your product requirements and intended destination market.</p></div><a class="btn light" href="contact.html">Enquire with VERX <span aria-hidden="true">↗</span></a></div></section>
-<footer class="site-footer"><div class="container"><div class="footer-grid">
-<div><a class="footer-logo" href="index.html" aria-label="VERX Global — Home"><img src="assets/verx-logo.png" alt="VERX Global Healthcare Solutions" width="240" height="74" loading="lazy"></a><p>Medical products, equipment, consumables and healthcare solutions for customers around the world.</p></div>
-<div><h3>Explore</h3><div class="footer-links">${pages.map(([url,label])=>`<a href="${url}">${label}</a>`).join('')}</div></div>
-<div><h3>Our commitment</h3><p>Quality-focused products and supply, commercially competitive solutions and applicable product regulatory documentation.</p><address class="footer-address"><b style="color:white">United Kingdom</b><br>20-22 Wenlock Road<br>London, N1 7GU<br>United Kingdom</address></div>
-</div><div class="footer-bottom"><span>© ${new Date().getFullYear()} VERX Global. All rights reserved.</span><span>Product availability, regulatory status and market authorisations vary by product and destination.</span></div></div></footer>`;
+(()=>{
+const nav=[['index.html','Home'],['products.html','Products'],['about.html','About Us'],['quality.html','Quality & Compliance'],['solutions.html','Healthcare Solutions'],['contact.html','Contact']];
+const active=location.pathname.split('/').pop()||'index.html';
+const header=document.getElementById('header');
+header.innerHTML=`<a href="#main-content" class="skip-link">Skip to content</a><div class="utility-bar"><div class="site-width utility-inner utility-single"><span>QUALITY MEDICAL PRODUCTS. TRUSTED WORLDWIDE.</span></div></div><header class="main-header"><div class="site-width header-inner"><a class="logo" href="index.html" aria-label="VERX Global homepage"><img src="assets/verx-logo.png" width="1789" height="552" alt="VERX Global Healthcare Solutions"><span>QUALITY MEDICAL PRODUCTS.<br>TRUSTED WORLDWIDE.</span></a><nav id="navigation" class="navigation" aria-label="Main navigation">${nav.map(([href,label])=>`<a href="${href}" ${href===active?'class="selected" aria-current="page"':''}>${label}</a>`).join('')}</nav><div class="nav-actions"><button type="button" id="open-search" class="icon-button" aria-label="Search product categories" title="Search product categories"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 5 5"/></svg></button><a href="contact.html" class="button quote-btn">Request a Quote <span aria-hidden="true">↗</span></a><button id="mobile-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open menu"><span></span><span></span><span></span></button></div></div></header>`;
+const footer=document.getElementById('footer');
+footer.innerHTML=`<div class="footer-cta"><div class="site-width footer-cta-inner"><div><span class="kicker light">LET'S START A CONVERSATION</span><h2>Better healthcare starts with the right partner.</h2><p>Tell us about your procurement needs, products and destination market.</p></div><a class="button white-btn" href="contact.html">Request a Quotation ↗</a></div></div><footer class="main-footer"><div class="site-width"><div class="footer-columns"><div class="footer-about"><a href="index.html" class="footer-logo"><img src="assets/verx-logo.png" alt="VERX Global Healthcare Solutions"></a><p>Quality medical products. Trusted worldwide.</p><p class="footer-intro">Medical consumables, equipment and healthcare solutions for international professional buyers.</p></div><div><h3>Quick Links</h3>${nav.map(([u,l])=>`<a href="${u}">${l}</a>`).join('')}</div><div><h3>Our Products</h3><a href="products.html#consumables">Medical Consumables</a><a href="products.html#infusion">IV & Infusion</a><a href="products.html#surgical">Medical Equipment</a><a href="products.html#diagnostics">Diagnostics & Laboratory</a><a href="products.html#wound-care">Wound & Surgical Care</a><a href="products.html#ppe">Infection Prevention</a></div><div><h3>Contact Us</h3><address>20-22 Wenlock Road<br>London, N1 7GU<br>United Kingdom</address><a href="mailto:info@VERXglobal.com">info@VERXglobal.com</a><a class="footer-quote" href="contact.html">Request a Quote ↗</a></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} VERX Global. All rights reserved.</span><span>Product imagery is illustrative. Regulatory approvals and availability vary by product and market.</span></div></div></footer>`;
+const toggle=document.getElementById('mobile-toggle'),menu=document.getElementById('navigation');
+const close=()=>{toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open menu');menu.classList.remove('expanded');};
+toggle.addEventListener('click',()=>{const open=!menu.classList.contains('expanded');menu.classList.toggle('expanded',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close menu':'Open menu');});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+const modal=document.createElement('dialog');modal.className='search-dialog';modal.setAttribute('aria-label','Search VERX product categories');modal.innerHTML=`<div class="search-inner"><div class="search-head"><strong>Find a product category</strong><button type="button" class="search-close" aria-label="Close search">✕</button></div><label class="search-label" for="site-search">Search by product type</label><input id="site-search" type="search" placeholder="Search consumables, IV, diagnostics..." autocomplete="off"><div id="search-results" class="search-results"></div><small>Searches website categories. For specific products, please request a quotation.</small></div>`;document.body.appendChild(modal);
+const data=[['Medical Consumables','consumables'],['IV & Infusion','infusion'],['Medical Equipment','surgical'],['Diagnostics & Laboratory','diagnostics'],['Wound & Surgical Care','wound-care'],['Infection Prevention','ppe']];
+const input=modal.querySelector('#site-search'),results=modal.querySelector('#search-results');
+const draw=()=>{const q=input.value.toLowerCase().trim();const matches=data.filter(([n])=>n.toLowerCase().includes(q));results.replaceChildren();matches.forEach(([name,id])=>{const a=document.createElement('a');a.href=`products.html#${id}`;a.textContent=`${name}  ↗`;results.appendChild(a)});if(!matches.length)results.textContent='No category match. Contact our team about the product you need.';};
+modal.querySelector('.search-close').addEventListener('click',()=>modal.close());document.getElementById('open-search').addEventListener('click',()=>{draw();modal.showModal();input.focus()});input.addEventListener('input',draw);modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});
+const params=new URLSearchParams(location.search),category=params.get('category');
+if(category){const message=document.getElementById('message'),type=document.getElementById('type');if(message){const categoryName=Object.fromEntries(data.map(([n,i])=>[i,n]))[category]||category;message.value=`I would like information or a quotation for ${categoryName}.\n\nProduct specifications: \nEstimated quantity: \nDestination market: `;if(type)type.value=category==='Documentation'?'Regulatory documentation':'Medical products';}}
+})();

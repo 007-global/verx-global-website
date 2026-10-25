@@ -1,24 +1,30 @@
-VERX GLOBAL — REDESIGNED WEBSITE PREVIEW
+VERX GLOBAL — CORPORATE HEALTHCARE WEBSITE
 
-GET STARTED
-Unzip the folder, then open verx-website/index.html in Chrome, Safari, Firefox or Edge.
-No npm, build process, external font, API key, or network connection required.
+STATIC WEBSITE
+Upload the CONTENTS of this verx-website folder to the root of a public GitHub repository, including index.html, the additional HTML pages, style.css, site.js, assets, and .nojekyll. Enable GitHub Pages: Settings → Pages → Deploy from a branch → main / (root).
 
-PAGES
-Home, About Us, Medical Products, Healthcare Solutions, Contact.
+CONTACT FORM — IMPORTANT ACTIVATION STEP
+The contact form is a genuine HTML POST submission to https://formsubmit.co/info@VERXglobal.com.
+GitHub Pages is a static host; submissions use the third-party FormSubmit.co service, not GitHub email.
+Once deployed at a public https:// URL, submit the contact form yourself ONCE.
+FormSubmit sends an activation email to info@VERXglobal.com. Open that inbox and click the verification/activation link. Check spam/junk if needed.
+AFTER activation, submit another test with your own details and confirm receipt at info@VERXglobal.com.
+Until the recipient completes activation, delivery is NOT assured. We have not accessed or tested that mailbox.
+Visitors may be presented with a CAPTCHA or FormSubmit confirmation screen, and will leave the site temporarily when submitting.
+FormSubmit is a third-party processor. Do not collect sensitive health/patient data through this form.
+Form details: https://formsubmit.co/ and https://formsubmit.co/documentation
 
-UPDATES
-- Full-width responsive layout with a completely redesigned homepage.
-- The supplied updated VERX logo is incorporated in the site header and footer.
-- V-only logo favicon included in ICO and PNG sizes. The V was extracted from the supplied reference and its white background removed.
-- New healthcare-themed hero image; new section design; retained six medical product category images.
-- Preserved all core content, categories, quality/regulatory caveats and the preview-mode enquiry workflow.
-- Added address: 20-22 Wenlock Road, London, N1 7GU, United Kingdom.
-- Mobile menu, keyboard accessibility, metadata, and responsive grids included.
+PRODUCT AND QUALITY CLAIMS
+The website retains product-family information and illustrative branding. Confirm live stock, certifications, regulatory documents, product packaging, and trading details with VERX before publication. ISO 13485 is a quality-management-system certification, NOT an individual product approval.
 
-IMPORTANT BEFORE GOING LIVE
-This is a static local preview; no hosting/domain was changed.
-The contact form COPIES enquiry text, it does not send/store submissions. Verify an official email address and integrate an approved secure backend before launch.
-The healthcare hero is an AI-generated illustrative scene, not a VERX facility, client, staff member or inventory claim.
-The branded medical product photographs and catalog are existing conceptual artwork, not verified stock, specifications or approved packaging.
-Verify specific regulatory claims, ISO 13485 certificate scope/validity, product certifications, availability, and market permissions before publication. Confirm exact trading company details, address right to use, privacy policy and other required business disclosures before launch.
+SITE FILES
+index.html — Home
+products.html — Products
+about.html — About Us
+quality.html — Quality & Compliance
+solutions.html — Healthcare Solutions
+contact.html — Enquiry form
+assets/ — Logo, favicon and imagery
+
+CUSTOM DOMAINS
+GitHub Pages default domain works. Domain/DNS setup is optional.
