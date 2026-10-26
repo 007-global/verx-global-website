@@ -1,6 +1,6 @@
 # VERX Global — Signature Website
 
-Fully rebuilt responsive multi-page site with a **sticky top navigation bar**, editable HTML/CSS/JS, branded assets and product imagery.
+Full responsive VERX Global website, updated to a reference-inspired white sticky navigation bar and photo-led hero. All six pages remain in place, with editable HTML/CSS/JS, branding and product imagery.
 
 ## Publish to GitHub Pages — no build needed
 
@@ -22,7 +22,7 @@ Fully rebuilt responsive multi-page site with a **sticky top navigation bar**, e
 - `site.js` — shared navigation/menu/footer/search and URL-based enquiry prefills
 - `assets/` — images, logo and favicon.
 
-Header stays at the top via `.site-header { position: sticky; top: 0; }` in `style.css`.
+The header stays visible via `#site-header { position: sticky; top: 0; }` in `style.css`. The main hero text and slide selection buttons are in `index.html`; switching between the three hero photos is handled in `site.js`. The compact header logo is `assets/verx-header-wordmark.png` (derived from your VERX logo); the full original company logo remains in `assets/verx-logo.png`.
 
 ## Contact form — IMPORTANT
 
@@ -35,3 +35,14 @@ The contact page POSTs directly to `https://formsubmit.co/info@VERXglobal.com` (
 - A lightweight **static HTML/CSS/JavaScript** implementation was intentionally selected instead of React. It loads quickly on GitHub Pages, provides React-like interactive features, and needs **no npm build** or workflow configuration.
 - Review company/legal copy, product range and regulatory statements before launch.
 - All external links, fonts, and form processing require an internet connection; the site itself works with normal static hosting.
+
+## If you only want to update your existing Signature website
+
+Upload these **four** files from this package, preserving their paths:
+
+- `index.html` — revised homepage hero layout and photo selector
+- `style.css` — header/hero styling and responsive spacing
+- `site.js` — logo tagline and hero slide-selector behavior
+- `assets/verx-header-wordmark.png` — cropped transparent header version of the VERX logo
+
+The rest of the Signature site is unchanged. Commit all four changes together. At mobile widths the navigation is accessible from the menu button; on desktops it stays visible while scrolling.

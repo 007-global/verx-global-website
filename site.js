@@ -8,9 +8,30 @@
   const pages=[['index.html','Home'],['products.html','Products'],['about.html','About Us'],['quality.html','Quality & Compliance'],['solutions.html','Solutions'],['contact.html','Contact']];
   const current=location.pathname.split('/').pop()||'index.html';
   const header=document.getElementById('site-header');
-  header.innerHTML=`<header class="site-header" id="main-header"><div class="container header-inside"><a href="index.html" class="header-brand" aria-label="VERX Global home"><img src="assets/verx-logo.png" alt="VERX Global Healthcare Solutions" width="1789" height="552"><span class="header-brand-tag">GLOBAL HEALTHCARE<br>SOLUTIONS</span></a><nav id="primary-nav" class="header-nav" aria-label="Primary navigation">${pages.map(([url,name])=>`<a href="${url}" ${current===url?'aria-current="page"':''}>${name}</a>`).join('')}</nav><div class="header-actions"><button type="button" class="icon-btn" id="search-toggle" aria-label="Search products">${ico('search')}</button><a href="contact.html" class="header-quote">Request a quote ${ico('arrow')}</a><button type="button" class="menu-toggle" id="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation">${ico('menu')}</button></div></div></header>`;
+  header.innerHTML=`<header class="site-header" id="main-header"><div class="container header-inside"><a href="index.html" class="header-brand" aria-label="VERX Global home"><img src="assets/verx-header-wordmark.png" alt="VERX Global" width="1789" height="450"><span class="header-brand-tag">GLOBAL HEALTHCARE SOLUTIONS<br>FOR A HEALTHIER TOMORROW</span></a><nav id="primary-nav" class="header-nav" aria-label="Primary navigation">${pages.map(([url,name])=>`<a href="${url}" ${current===url?'aria-current="page"':''}>${name}</a>`).join('')}</nav><div class="header-actions"><button type="button" class="icon-btn" id="search-toggle" aria-label="Search products">${ico('search')}</button><a href="contact.html" class="header-quote">Request a quote ${ico('arrow')}</a><button type="button" class="menu-toggle" id="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation">${ico('menu')}</button></div></div></header>`;
   const foot=document.getElementById('site-footer');
   foot.innerHTML=`<footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><a href="index.html"><img src="assets/verx-logo.png" alt="VERX Global" width="1789" height="552"></a><p>Medical products, clinical equipment and thoughtful healthcare supply conversations for professional buyers.</p><div class="footer-social-line">VERX GLOBAL <span>•</span> QUALITY-FOCUSED HEALTHCARE SUPPLY</div></div><div class="footer-col"><h3>Company</h3><a href="index.html">Home</a><a href="about.html">About us</a><a href="solutions.html">Healthcare solutions</a><a href="quality.html">Quality & compliance</a></div><div class="footer-col"><h3>Products</h3><a href="products.html#consumables">Medical consumables</a><a href="products.html#surgical">Medical equipment</a><a href="products.html#infusion">IV & infusion</a><a href="products.html#diagnostics">Diagnostics & laboratory</a><a href="products.html#wound-care">Wound & surgical care</a><a href="products.html#ppe">Infection prevention</a></div><div class="footer-col"><h3>Contact</h3><address>20–22 Wenlock Road<br>London, N1 7GU<br>United Kingdom</address><a href="mailto:info@VERXglobal.com">info@VERXglobal.com</a><a href="contact.html">Request a quotation →</a></div></div><div class="container footer-bottom"><span>© ${new Date().getFullYear()} VERX Global. All rights reserved.</span><span>Images may be illustrative. Product specifications, availability and regulatory status require confirmation.</span></div></footer>`;
+  // Accessible hero photo selector. Manually controlled; no distracting autoplay.
+  const heroImage=document.querySelector('#hero-feature-image');
+  const heroDots=[...document.querySelectorAll('.hero-dot')];
+  if(heroImage && heroDots.length){
+    const slides=[
+      {src:'assets/hero-clinical.webp',alt:'Healthcare specialist preparing a clinical vial',caption:'SAFE PRODUCTS.\nSTRONGER HEALTHCARE SYSTEMS.'},
+      {src:'assets/equipment-premium.webp',alt:'Modern hospital patient-monitoring equipment',caption:'ESSENTIAL EQUIPMENT.\nCONFIDENT CLINICAL CARE.'},
+      {src:'assets/hospital-environment.webp',alt:'Modern light-filled professional healthcare facility',caption:'CONNECTED SUPPLY.\nBETTER HEALTHCARE.'}
+    ];
+    heroDots.forEach((dot,index)=>dot.addEventListener('click',()=>{
+      const slide=slides[index];
+      heroImage.src=slide.src;
+      heroImage.alt=slide.alt;
+      const copy=document.querySelector('#hero-visual-caption');
+      if(copy)copy.textContent=slide.caption;
+      heroDots.forEach((button,i)=>{
+        button.setAttribute('aria-pressed',String(i===index));
+        button.classList.toggle('is-active',i===index);
+      });
+    }));
+  }
   const mainHeader=document.getElementById('main-header');
   const onScroll=()=>mainHeader.classList.toggle('scrolled',window.scrollY>12);
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
