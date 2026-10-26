@@ -28,3 +28,14 @@ assets/ — Logo, favicon and imagery
 
 CUSTOM DOMAINS
 GitHub Pages default domain works. Domain/DNS setup is optional.
+
+
+OCTOBER 2026 VISUAL REFRESH
+--------------------------
+This edition only refines styles in style.css; all six page structures,
+all text, existing images, contact-form endpoint, and non-sticky menu remain.
+If re-uploading to an existing GitHub repository, only style.css needs to
+be replaced. To update via GitHub browser, open style.css, click Edit,
+replace its contents with the new file, and Commit changes to main.
+For the contact form, FormSubmit must be activated via the recipient inbox
+and tested with a real submission.
