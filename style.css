@@ -445,3 +445,13 @@ body{background:#f8fcff;color:#102d4a}
   .header-nav{max-height:calc(100dvh - 64px);}
   .icon-btn,.menu-toggle{width:39px;height:39px;}
 }
+
+
+/* --- October 30 refinement: smoother image blending and product brand consistency --- */
+.pagehero-image{background:linear-gradient(180deg,#f6fbfe,#deeff7);border:1px solid #dceef6}
+.pagehero-image::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.02));pointer-events:none}
+.pagehero-image img{filter:saturate(.97) contrast(1.02)}
+.product-card img{background:#eef7fb;border-bottom:1px solid #e6f1f6;object-position:center center}
+.product-card:nth-child(3) img,.product-card:nth-child(4) img,.product-card:nth-child(5) img{object-position:center 42%}
+.brand-right>img,.split-editorial>img,.impact-image img{filter:saturate(.98) contrast(1.02)}
+.brand-image-note{backdrop-filter:blur(10px);background:rgba(255,255,255,.92)}
