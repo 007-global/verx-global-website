@@ -446,12 +446,66 @@ body{background:#f8fcff;color:#102d4a}
   .icon-btn,.menu-toggle{width:39px;height:39px;}
 }
 
+/* ============================================
+   VERX 2026-10-30 — Unified photography system
+   ================================================= */
+:root { --brand-deep:#072d49; --brand-sky:#dff3fd; }
+/* The image now spans the entire right side of secondary-page heroes,
+   and a gradient smooths the boundary under the text. */
+.pagehero{background:#e9f8ff url('assets/wave-accent.svg') center / cover no-repeat; isolation:isolate;}
+.pagehero::after{content:"";position:absolute;inset:auto -10% -80px -10%;height:210px;background:radial-gradient(ellipse at 50% 100%,rgba(8,139,178,.10),transparent 69%);pointer-events:none;z-index:1;}
+.pagehero-wrap{position:relative;display:flex;align-items:center;min-height:440px;}
+.pagehero-text{position:relative;z-index:3;width:55%;max-width:770px;padding:65px 20px 65px 0;}
+.pagehero-text h1{font-size:clamp(42px,4.55vw,74px);line-height:1.08;margin:17px 0 17px;}
+.pagehero-image{position:absolute;top:0;bottom:0;left:41%;right:calc(-1 * max(48px, (100vw - 1512px) / 2));min-height:0;margin:0!important;border:0;box-shadow:none;border-radius:0;overflow:hidden;z-index:1;background:#d8eff9;}
+.pagehero-image img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center;filter:saturate(.96) contrast(1.01);}
+.pagehero-image::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,#e9f8ff 0%,rgba(233,248,255,.96) 12%,rgba(233,248,255,.42) 35%,rgba(233,248,255,0) 64%),linear-gradient(0deg,rgba(233,248,255,.10),transparent 35%);pointer-events:none;}
+/* The accent waves stay subtle, not a hard cutout or frame. */
+.pagehero-image::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(0deg,rgba(232,248,255,.12),transparent 22%);}
+/* Consistent image crops and pale backgrounds on catalogue cards. */
+.product-card{box-shadow:0 12px 32px rgba(17,83,114,.12);transition:transform .25s,box-shadow .25s;}
+.product-card img{background:#e6f5fc;object-fit:cover;object-position:center 48%;}
+.product-card:hover{box-shadow:0 19px 44px rgba(17,83,114,.18);}
+.brand-right>img{object-position:center;filter:saturate(.95);}
+.brand-right::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(5,42,68,.10),transparent 28%),linear-gradient(0deg,rgba(5,42,68,.20),transparent 25%);}
+.brand-official-mark{position:absolute;z-index:3;left:20px;top:20px;padding:10px 13px;max-width:170px;background:rgba(255,255,255,.92);border:1px solid rgba(223,239,246,.9);border-radius:10px;box-shadow:0 8px 25px rgba(7,49,79,.1);}
+.brand-official-mark img{width:100%;height:auto;object-fit:contain;}
+.brand-image-note{z-index:3;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);}
+/* Simpler image treatment in editorial sections avoids competing hard edges. */
+.split-editorial>img{object-fit:cover;border-radius:16px;box-shadow:0 14px 42px rgba(8,95,131,.15);}
+.impact-image img{filter:saturate(.96);}
+.feature-photo-section>img{filter:saturate(.98);}
+/* Main hero photo blends softly into the navy headline field. */
+.hero-image{left:18%;}
+.hero-image img{object-fit:cover;object-position:center 46%;filter:saturate(.96) contrast(1.02);}
+.hero-shade{background:linear-gradient(90deg,#061f37 0%,rgba(6,31,55,.97) 22%,rgba(6,31,55,.73) 46%,rgba(6,31,55,.09) 86%),linear-gradient(0deg,rgba(5,29,49,.60),transparent 33%);}
+/* Avoid huge white gaps between sections */
+.section{padding-block:clamp(52px,5.1vw,80px);}
+.section-heading{margin-bottom:27px;}
+/* Navigation spacing remains balanced and sticky. */
+#site-header{position:sticky;top:0;z-index:120;}
+.header-nav{justify-content:center;}
+@media (min-width:1600px){.pagehero-image{right:calc((1512px - 100vw)/2);} }
+@media (max-width:1050px){
+ .pagehero-wrap{min-height:390px;}
+ .pagehero-text{width:60%;padding:44px 10px 44px 0;}
+ .pagehero-image{left:42%;right:-32px;}
+ .pagehero-text h1{font-size:clamp(38px,5vw,59px);}
+ .brand-official-mark{max-width:145px;}
+}
+@media (max-width:750px){
+ .pagehero-wrap{display:flex;flex-direction:column;align-items:stretch;min-height:0;}
+ .pagehero-text{width:100%;padding:43px 0 32px;max-width:none;}
+ .pagehero-text h1{font-size:clamp(38px,8vw,57px);}
+ .pagehero-image{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:calc(100% + 36px);height:270px;min-height:270px;margin:0 -18px!important;border-radius:0 0 22px 22px;}
+ .pagehero-image img{position:absolute;inset:0;object-position:center 38%;}
+ .pagehero-image::before{background:linear-gradient(180deg,#e9f8ff 0%,rgba(233,248,255,.20) 22%,transparent 55%);}
+ .hero-image{left:0;}
+ .hero-image img{object-position:68% center;}
+ .hero-shade{background:linear-gradient(0deg,rgba(6,30,51,.95) 0%,rgba(6,30,51,.8) 44%,rgba(6,30,51,.3) 100%),linear-gradient(90deg,rgba(5,29,49,.35),transparent);}
+ .brand-official-mark{top:12px;left:12px;max-width:125px;padding:8px;}
+}
+@media (max-width:420px){.pagehero-image{height:230px;min-height:230px;}}
 
-/* --- October 30 refinement: smoother image blending and product brand consistency --- */
-.pagehero-image{background:linear-gradient(180deg,#f6fbfe,#deeff7);border:1px solid #dceef6}
-.pagehero-image::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.02));pointer-events:none}
-.pagehero-image img{filter:saturate(.97) contrast(1.02)}
-.product-card img{background:#eef7fb;border-bottom:1px solid #e6f1f6;object-position:center center}
-.product-card:nth-child(3) img,.product-card:nth-child(4) img,.product-card:nth-child(5) img{object-position:center 42%}
-.brand-right>img,.split-editorial>img,.impact-image img{filter:saturate(.98) contrast(1.02)}
-.brand-image-note{backdrop-filter:blur(10px);background:rgba(255,255,255,.92)}
+/* Transparent official wordmark in navigation without any white rectangle. */
+.header-brand img{object-fit:contain;mix-blend-mode:normal;}
