@@ -1,48 +1,40 @@
-# VERX Global — Signature Website
+# VERX GLOBAL · Aurora Website Edition
 
-Full responsive VERX Global website, updated to a reference-inspired white sticky navigation bar and photo-led hero. All six pages remain in place, with editable HTML/CSS/JS, branding and product imagery.
+Six-page responsive HTML/CSS/JavaScript website. No build step, Node, or React dependency. The sticky header is shared by `site.js`.
 
-## Publish to GitHub Pages — no build needed
+## Publishing to GitHub Pages
+1. Open the extracted `verx-website` folder; **upload its contents** to the repository root so `index.html` is at the top level.
+2. In GitHub → Settings → Pages → Build and deployment, select **Deploy from a branch**, branch `main`, folder `/(root)`.
+3. Open the Pages URL shown by GitHub and check every page on desktop and mobile.
+4. When replacing older files, upload matching filenames and commit changes. You can instead replace all the website files, but remove obsolete files carefully. Keep the `.nojekyll` file.
 
-1. Unzip this package and open the `verx-website` folder.
-2. In your GitHub repository, place **all contents** of `verx-website` at the repository root. In particular, `index.html` must be at the root and the `assets` folder alongside it. Don't upload the ZIP alone.
-3. In the repository click **Settings → Pages** and set Source = **Deploy from a branch**, Branch = **main**, Folder = **/(root)**. Save.
-4. Wait for GitHub Actions Pages deployment to succeed, then visit the Pages URL.
-5. If replacing an existing website, ensure files with the same names are updated and old conflicting files are removed. An ordinary web upload may not overwrite every same-named file automatically; verify the commit/file diff.
+## Editing
+- `index.html`: Homepage content, hero text, six product categories, three highlight cards.
+- `about.html`, `products.html`, `quality.html`, `solutions.html`, `contact.html`: Page content.
+- `style.css`: All site styling, including the **Aurora Design System** overrides at its end. Change CSS variables there to update colors globally.
+- `site.js`: Shared navigation, footer, mobile menu, search, interactive homepage hero, product filters.
+- `assets/wave-accent.svg`: Reusable blue-wave motif from the supplied design reference.
+- `assets/`: Local images, logo, and favicon; replace an image by keeping its filename, or update the referring HTML/CSS path.
 
-## What to edit
+## Contact form
+`contact.html` submits through FormSubmit to `info@VERXglobal.com`. **This is not live until the mailbox owner completes FormSubmit activation and verifies delivery using a published-site test.** Do not use the form for protected health or patient information. Check FormSubmit terms/privacy before launch.
 
-- `index.html` — homepage copy and layout
-- `products.html` — medical categories and collection pages
-- `about.html` — about/mission and company text
-- `quality.html` — quality and regulatory messaging
-- `solutions.html` — healthcare solution information
-- `contact.html` — contact form fields and email endpoint
-- `style.css` — spacing, typography, color, sticky header, layouts, mobile styles
-- `site.js` — shared navigation/menu/footer/search and URL-based enquiry prefills
-- `assets/` — images, logo and favicon.
+## Important content note
+All product and brand-packaging images are illustrative design assets. Do not claim certificates, regulatory approvals, inventory, delivery guarantees, or manufacturer authorizations without evidence. Replace the illustrative images with approved real product photography when available.
 
-The header stays visible via `#site-header { position: sticky; top: 0; }` in `style.css`. The main hero text and slide selection buttons are in `index.html`; switching between the three hero photos is handled in `site.js`. The compact header logo is `assets/verx-header-wordmark.png` (derived from your VERX logo); the full original company logo remains in `assets/verx-logo.png`.
+## Testing
+Review each page and test header, hamburger menu, search, product links, and contact form after deployment. Some browsers aggressively cache styles; refresh with Cmd+Shift+R on macOS if needed.
 
-## Contact form — IMPORTANT
+## Contact email configuration (October 30, 2026)
 
-The contact page POSTs directly to `https://formsubmit.co/info@VERXglobal.com` (third-party FormSubmit service). **This is not an in-house backend.** The mailbox owner needs to activate the service through the FormSubmit verification email after the first submission. Afterwards send a second test submission to confirm delivery. It won't work in offline mode. Do not collect medical records or sensitive patient data with this form.
+- **Public contact address** (Contact page and footer): `info@verxglobal.com`.
+- **Enquiry submission recipient** (the `action` in `contact.html`): `elias@verxglobal.com` via FormSubmit.co.
+- **Required activation:** after deploying, submit the form once, sign in to the `elias@verxglobal.com` mailbox, open the FormSubmit activation email and approve it, then submit another test and verify receipt. Until activated, successful delivery is NOT guaranteed. If no activation email arrives, check spam/junk.
+- FormSubmit is a third-party service. Do not request or submit confidential patient information.
+- If you ever change the internal recipient, change only `action` inside `contact.html`, leaving the visible `info@verxglobal.com` contact links intact.
 
-## Notes before publishing
+## Latest appearance changes
 
-- Photography and VERX product packaging are illustrative, not proof of stocked products, certifications or packaging used in commerce. Replace with actual licensed photographs and verified documentation when available.
-- No unverified certification or ISO claims have been added.
-- A lightweight **static HTML/CSS/JavaScript** implementation was intentionally selected instead of React. It loads quickly on GitHub Pages, provides React-like interactive features, and needs **no npm build** or workflow configuration.
-- Review company/legal copy, product range and regulatory statements before launch.
-- All external links, fonts, and form processing require an internet connection; the site itself works with normal static hosting.
-
-## If you only want to update your existing Signature website
-
-Upload these **four** files from this package, preserving their paths:
-
-- `index.html` — revised homepage hero layout and photo selector
-- `style.css` — header/hero styling and responsive spacing
-- `site.js` — logo tagline and hero slide-selector behavior
-- `assets/verx-header-wordmark.png` — cropped transparent header version of the VERX logo
-
-The rest of the Signature site is unchanged. Commit all four changes together. At mobile widths the navigation is accessible from the menu button; on desktops it stays visible while scrolling.
+- Centered, larger desktop navigation with improved spacing and a responsive mobile/tablet menu.
+- The product-brand image `assets/verx-products.png` has been replaced with a new illustrative studio product photograph. The three branded packages carry composited pixels from the exact official VERX logo artwork, not AI-rendered lettering. The image remains a design concept; it is NOT evidence of physical products or packaging.
+- Image artwork can be replaced via GitHub's file upload, keeping exactly the same filename.
